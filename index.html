@@ -7,8 +7,7 @@
   <meta name="theme-color" content="#000000" />
   <title>LA BUENOTA RADIO</title>
 
-  <link rel="canonical" href="https://appradios2025.github.io/labuenotaradio/">
-  <link rel="manifest" href="/labuenotaradio/manifest.json" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -90,8 +89,7 @@
       height: 28px;
     }
     @keyframes float {
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(0);
       }
       50% {
@@ -130,16 +128,20 @@
 <body>
   <div class="social-bubbles">
     <a href="https://wa.me/message/26OXOEPDCREJE1" target="_blank" title="WhatsApp">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"
+        style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%)" />
     </a>
     <a href="https://www.facebook.com/donbeltranecua/" target="_blank" title="Facebook">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
+        style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%)" />
     </a>
     <a href="https://www.instagram.com/donbeltranecu/" target="_blank" title="Instagram">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
+        style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%)" />
     </a>
     <a href="https://www.tiktok.com/@donbeltranusa" target="_blank" title="TikTok">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok"
+        style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%)" />
     </a>
   </div>
 
@@ -157,6 +159,7 @@
     const audio = document.getElementById('audio');
     const playPauseBtn = document.getElementById('playPauseBtn');
     let isPlaying = false;
+
     playPauseBtn.addEventListener('click', async () => {
       try {
         if (!isPlaying) {
@@ -172,13 +175,12 @@
         alert('Error al reproducir: ' + err.message);
       }
     });
-  </script>
 
-  <script>
+    // ✅ Registro del Service Worker (necesario para Android)
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/labuenotaradio/service-worker.js', { scope: '/labuenotaradio/' })
-        .then(reg => console.log('✅ SW registrado, scope:', reg.scope))
-        .catch(err => console.error('❌ Error registrando SW:', err));
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('✅ Service Worker registrado'))
+        .catch(error => console.log('❌ Error al registrar Service Worker:', error));
     }
   </script>
 </body>
