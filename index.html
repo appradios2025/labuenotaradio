@@ -49,7 +49,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
       transition: background 0.3s;
     }
 
@@ -75,21 +75,26 @@
       height: 55px;
       border-radius: 50%;
       background-color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: float 3s ease-in-out infinite;
     }
     .social-bubbles a:hover {
       transform: scale(1.15);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
     .social-bubbles img {
       width: 28px;
       height: 28px;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
     /* Disco girando */
@@ -107,29 +112,49 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
       animation: spin 5s linear infinite;
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   </style>
 </head>
 <body>
   <div class="social-bubbles">
     <a href="https://wa.me/message/26OXOEPDCREJE1" target="_blank" title="WhatsApp">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%);" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+        alt="WhatsApp"
+        style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%)"
+      />
     </a>
     <a href="https://www.facebook.com/donbeltranecua/" target="_blank" title="Facebook">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%);" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
+        alt="Facebook"
+        style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%)"
+      />
     </a>
     <a href="https://www.instagram.com/donbeltranecu/" target="_blank" title="Instagram">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%);" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+        alt="Instagram"
+        style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%)"
+      />
     </a>
     <a href="https://www.tiktok.com/@donbeltranusa" target="_blank" title="TikTok">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%);" />
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+        alt="TikTok"
+        style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%)"
+      />
     </a>
   </div>
 
@@ -142,7 +167,7 @@
     <button class="play-btn" id="playPauseBtn">▶</button>
   </div>
 
-  <audio id="audio" src="http://78.129.237.51:18750/stream" preload="none"></audio>
+  <audio id="audio" src="https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_26984579" preload="none"></audio>
 
   <script>
     const audio = document.getElementById('audio');
@@ -162,7 +187,7 @@
           isPlaying = false;
         }
       } catch (err) {
-        alert("Error al reproducir: " + err.message);
+        alert('Error al reproducir: ' + err.message);
       }
     });
   </script>
