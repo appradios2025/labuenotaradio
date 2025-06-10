@@ -1,14 +1,22 @@
 
-self.addEventListener('install', event => {
-  console.log('🔧 Service Worker instalado');
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', event => {
-  console.log('🚀 Service Worker activado');
-  return self.clients.claim();
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(fetch(event.request));
-});
+{
+  "name": "LA BUENOTA RADIO",
+  "short_name": "Buenota Radio",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
