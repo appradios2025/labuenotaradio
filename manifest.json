@@ -1,8 +1,8 @@
 
 {
   "name": "LA BUENOTA RADIO",
-  "short_name": "Buenota Radio",
-  "start_url": ".",
+  "short_name": "BUENOTA",
+  "start_url": "/labuenotaradio/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
