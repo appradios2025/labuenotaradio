@@ -68,7 +68,6 @@
       gap: 15px;
       z-index: 999;
     }
-
     .social-bubbles a {
       display: flex;
       justify-content: center;
@@ -81,17 +80,14 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: float 3s ease-in-out infinite;
     }
-
     .social-bubbles a:hover {
       transform: scale(1.15);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
-
     .social-bubbles img {
       width: 28px;
       height: 28px;
     }
-
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
@@ -124,20 +120,16 @@
 <body>
   <div class="social-bubbles">
     <a href="https://wa.me/message/26OXOEPDCREJE1" target="_blank" title="WhatsApp">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"
-        style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%)" />
     </a>
     <a href="https://www.facebook.com/donbeltranecua/" target="_blank" title="Facebook">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
-        style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%)" />
     </a>
     <a href="https://www.instagram.com/donbeltranecu/" target="_blank" title="Instagram">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
-        style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%)" />
     </a>
     <a href="https://www.tiktok.com/@donbeltranusa" target="_blank" title="TikTok">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok"
-        style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%)" />
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok" style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%)" />
     </a>
   </div>
 
@@ -154,6 +146,7 @@
   <script>
     const audio = document.getElementById('audio');
     const playPauseBtn = document.getElementById('playPauseBtn');
+
     let isPlaying = false;
 
     playPauseBtn.addEventListener('click', async () => {
@@ -175,9 +168,9 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registrado:', reg.scope))
-        .catch(err => console.error('Error registrando Service Worker:', err));
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('✅ Service Worker registrado, scope:', reg.scope))
+        .catch(err => console.error('❌ Error registrando SW:', err));
     }
   </script>
 </body>
