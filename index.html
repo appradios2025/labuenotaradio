@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,6 +44,7 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      outline: none; /* 👈 Soluciona la sombra o borde raro */
     }
 
     .spectrum {
@@ -61,7 +63,7 @@
 
     .social-horizontal {
       position: fixed;
-      bottom: 140px; /* más arriba para separación */
+      bottom: 140px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -123,7 +125,8 @@
     <div class="spectrum" id="spectrum"></div>
   </div>
 
-  <audio id="audio" preload="none" src="https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_227358154"></audio>
+  <!-- ⚠️ Cambio importante: preload="auto" -->
+  <audio id="audio" preload="auto" src="https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_227358154"></audio>
 
   <script>
     const audio = document.getElementById('audio');
@@ -202,6 +205,9 @@
     audio.addEventListener('waiting', () => {
       console.warn('Esperando datos...');
     });
+
+    // 👇 Solución final: carga anticipada
+    audio.load();
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js');
