@@ -1,41 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#000000" />
-  <title>LA BUENOTA RADIO</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LA BUENOTA</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icon-192.png" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
+  <meta name="theme-color" content="#000000"/>
+  <link rel="apple-touch-icon" href="icon-512.png" />
   <style>
     body {
       margin: 0;
-      padding: 0;
       background: url('fondobuenota.png') no-repeat center center fixed;
       background-size: cover;
       font-family: sans-serif;
-      position: relative;
       height: 100vh;
       overflow: hidden;
     }
 
     .radio-player {
-      position: absolute;
+      position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
-      border-radius: 20px;
       display: flex;
       align-items: center;
       gap: 20px;
-      z-index: 2;
+      background: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 30px;
     }
 
     .play-btn {
@@ -50,12 +42,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      transition: background 0.3s;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
-    .play-btn:hover {
-      background: #333;
+    .spectrum {
+      display: flex;
+      gap: 4px;
+      height: 40px;
+      align-items: end;
+    }
+
+    .bar {
+      width: 6px;
+      background: #4ade80;
+      height: 10%;
+      transition: height 0.2s ease-out;
     }
 
     .social-bubbles {
@@ -68,6 +69,7 @@
       gap: 15px;
       z-index: 999;
     }
+
     .social-bubbles a {
       display: flex;
       justify-content: center;
@@ -76,111 +78,130 @@
       height: 55px;
       border-radius: 50%;
       background-color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: float 3s ease-in-out infinite;
     }
+
     .social-bubbles a:hover {
       transform: scale(1.15);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
+
     .social-bubbles img {
       width: 28px;
       height: 28px;
     }
+
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
-    }
-
-    .vinyl-container {
-      position: absolute;
-      bottom: 120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 120px;
-      z-index: 1;
-    }
-
-    .vinyl {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-      animation: spin 5s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
 <body>
   <div class="social-bubbles">
-    <a href="https://wa.me/message/26OXOEPDCREJE1" target="_blank" title="WhatsApp">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"
-        style="filter: invert(29%) sepia(91%) saturate(747%) hue-rotate(93deg) brightness(90%) contrast(89%)" />
-    </a>
     <a href="https://www.facebook.com/donbeltranecua/" target="_blank" title="Facebook">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
-        style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%)" />
+        style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%);">
     </a>
     <a href="https://www.instagram.com/donbeltranecu/" target="_blank" title="Instagram">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"
-        style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%)" />
+        style="filter: invert(46%) sepia(58%) saturate(493%) hue-rotate(313deg) brightness(94%) contrast(90%);">
     </a>
     <a href="https://www.tiktok.com/@donbeltranusa" target="_blank" title="TikTok">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok"
-        style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%)" />
+        style="filter: invert(10%) sepia(89%) saturate(674%) hue-rotate(165deg) brightness(92%) contrast(96%);">
     </a>
-  </div>
-
-  <div class="vinyl-container">
-    <img class="vinyl" src="vinilodisco.png" alt="Disco de vinilo" />
   </div>
 
   <div class="radio-player">
     <button class="play-btn" id="playPauseBtn">▶</button>
+    <div class="spectrum" id="spectrum"></div>
   </div>
 
-  <audio id="audio" src="https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_26984579" preload="none"></audio>
+  <audio id="audio" preload="none" src="https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_227358154"></audio>
 
   <script>
     const audio = document.getElementById('audio');
     const playPauseBtn = document.getElementById('playPauseBtn');
+    const spectrum = document.getElementById('spectrum');
     let isPlaying = false;
+    let animationId;
 
-    playPauseBtn.addEventListener('click', async () => {
-      try {
-        if (!isPlaying) {
-          await audio.play();
+    const bars = [];
+    for (let i = 0; i < 16; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      spectrum.appendChild(bar);
+      bars.push(bar);
+    }
+
+    function animateFakeSpectrum() {
+      bars.forEach((bar) => {
+        const height = Math.random() * 100;
+        bar.style.height = height + '%';
+      });
+      animationId = requestAnimationFrame(animateFakeSpectrum);
+    }
+
+    playPauseBtn.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
           playPauseBtn.textContent = '⏸';
+          animateFakeSpectrum();
           isPlaying = true;
-        } else {
-          audio.pause();
-          playPauseBtn.textContent = '▶';
-          isPlaying = false;
-        }
-      } catch (err) {
-        alert('Error al reproducir: ' + err.message);
+        }).catch(err => {
+          console.error('Error al reproducir:', err);
+        });
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+        cancelAnimationFrame(animationId);
+        isPlaying = false;
       }
     });
 
-    // ✅ Registro del Service Worker (necesario para Android)
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && isPlaying) {
+        console.log('Reanudando correctamente el stream...');
+        audio.pause();
+        audio.src = '';
+        audio.load();
+        audio.src = 'https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_227358154';
+        audio.play().then(() => {
+          console.log('Stream reanudado con éxito.');
+        }).catch(err => {
+          console.error('Error al reanudar el stream:', err);
+        });
+      }
+    });
+
+    audio.addEventListener('error', () => {
+      console.error('Error de audio:', audio.error);
+    });
+
+    audio.addEventListener('stalled', () => {
+      console.warn('Stream detenido (stalled), intentando reconectar...');
+      setTimeout(() => {
+        if (audio.readyState < 3) {
+          audio.pause();
+          audio.src = '';
+          audio.load();
+          audio.src = 'https://uk16freenew.listen2myradio.com/live.mp3?typeportmount=ice_18750_stream_227358154';
+          audio.play().catch(err => {
+            console.error('Error al reconectar:', err);
+          });
+        }
+      }, 3000);
+    });
+
+    audio.addEventListener('waiting', () => {
+      console.warn('Esperando datos...');
+    });
+
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('✅ Service Worker registrado'))
-        .catch(error => console.log('❌ Error al registrar Service Worker:', error));
+      navigator.serviceWorker.register('service-worker.js');
     }
   </script>
 </body>

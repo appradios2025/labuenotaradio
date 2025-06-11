@@ -1,15 +1,21 @@
-
 self.addEventListener('install', event => {
-  console.log('🛠️ Service Worker instalado');
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', event => {
-  console.log('🚀 Service Worker activado');
+  event.waitUntil(
+    caches.open('la-buenota-cache').then(cache => {
+      return cache.addAll([
+        './',
+        './index.html',
+        './manifest.json',
+        './icon-192.png',
+        './icon-512.png'
+      ]);
+    })
+  );
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    fetch(event.request).catch(() => new Response("Sin conexión", { status: 503 }))
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
