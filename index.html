@@ -59,48 +59,41 @@
       transition: height 0.2s ease-out;
     }
 
-    .social-bubbles {
+    .social-horizontal {
       position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      gap: 20px;
       z-index: 999;
     }
 
-    .social-bubbles a {
+    .social-horizontal a {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background-color: #ffffff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: float 3s ease-in-out infinite;
     }
 
-    .social-bubbles a:hover {
+    .social-horizontal a:hover {
       transform: scale(1.15);
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
 
-    .social-bubbles img {
+    .social-horizontal img {
       width: 28px;
       height: 28px;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
     }
   </style>
 </head>
 <body>
-  <div class="social-bubbles">
+  <div class="social-horizontal">
     <a href="https://www.facebook.com/donbeltranecua/" target="_blank" title="Facebook">
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"
         style="filter: invert(29%) sepia(94%) saturate(549%) hue-rotate(187deg) brightness(91%) contrast(89%);">
